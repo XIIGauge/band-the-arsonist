@@ -11,3 +11,7 @@
 [node name="Project Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Added Nonde for lols" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
