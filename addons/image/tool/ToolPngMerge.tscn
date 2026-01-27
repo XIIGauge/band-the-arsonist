@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://co2nm4nm6800f"]
+
+[ext_resource type="Script" uid="uid://cfcivec5erb15" path="res://addons/image/tool/ToolPngMerge.cs" id="1_8ka1k"]
+[ext_resource type="Texture2D" uid="uid://cfjaef64valte" path="res://icon.png" id="2_dudmp"]
+
+[node name="ToolPngMerge" type="Node2D"]
+script = ExtResource("1_8ka1k")
+MaxWidth = 870
+MaxHeight = 1535
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-19, -24.124994)
+texture = ExtResource("2_dudmp")
