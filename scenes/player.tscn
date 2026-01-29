@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5csicam0rjr3"]
 
 [ext_resource type="Texture2D" uid="uid://b61eadh2lhg0j" path="res://2D Resources/characters/DinoSprites - vita.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://s0lqhkruuslg" path="res://Script folder/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -45,9 +46,10 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 5.0
-height = 22.0
+height = 18.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1445560619]
+script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901932088]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
