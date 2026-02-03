@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c1j3qm0otd6gd"]
 
+[ext_resource type="Script" uid="uid://dpisatwrnvf4f" path="res://Script folder/coin_pick_up.gd" id="1_58pbl"]
 [ext_resource type="Texture2D" uid="uid://gwmebowffpis" path="res://2D Resources/items/coin.png" id="1_ocplg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58pbl"]
@@ -62,6 +63,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1o15o"]
 
 [node name="CoinPickUp" type="Node2D" unique_id=1564417714]
+script = ExtResource("1_58pbl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1053234171]
 sprite_frames = SubResource("SpriteFrames_p68wx")
@@ -70,7 +72,10 @@ frame = 1
 frame_progress = 0.46990454
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1048807867]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=9773302]
 scale = Vector2(0.51893234, 0.51893234)
 shape = SubResource("CircleShape2D_1o15o")
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

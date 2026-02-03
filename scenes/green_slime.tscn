@@ -78,9 +78,9 @@ target_position = Vector2(7, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1200045045]
 target_position = Vector2(-8, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=182253971]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_t5vyh")
+[node name="KillZone" parent="." unique_id=541375455 instance=ExtResource("3_0pvn7")]
+position = Vector2(-1.5, 0)
 
-[node name="KillZone" parent="CollisionShape2D" unique_id=541375455 instance=ExtResource("3_0pvn7")]
-position = Vector2(-1.5, -5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=182253971]
+position = Vector2(1.5, 5)
+shape = SubResource("RectangleShape2D_t5vyh")

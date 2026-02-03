@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b5csicam0rjr3" path="res://scenes/player.tscn" id="1_v3uhd"]
 [ext_resource type="Texture2D" uid="uid://b8smopon2jumj" path="res://2D Resources/tilesets/back.png" id="2_8ra5a"]
+[ext_resource type="Texture2D" uid="uid://db4beo7xte03n" path="res://2D Resources/tilesets/middle.png" id="2_bq26l"]
 [ext_resource type="PackedScene" uid="uid://c1j3qm0otd6gd" path="res://scenes/coin_pick_up.tscn" id="2_ufxs0"]
 [ext_resource type="Texture2D" uid="uid://bf1busbvjlyrs" path="res://2D Resources/tilesets/tileset.png" id="3_qmak7"]
 [ext_resource type="PackedScene" uid="uid://3kcggtghjsei" path="res://scenes/green_slime.tscn" id="4_8ra5a"]
+[ext_resource type="PackedScene" uid="uid://brwhb76pcde88" path="res://scenes/platform.tscn" id="7_u2c82"]
+[ext_resource type="PackedScene" uid="uid://dybctc2es4aj" path="res://scenes/kill_zone.tscn" id="8_k5pu3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bq26l"]
 texture = ExtResource("3_qmak7")
@@ -247,50 +250,89 @@ texture = ExtResource("3_qmak7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bq26l")
 
+[sub_resource type="Animation" id="Animation_u2c82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1808, 90)]
+}
+
+[sub_resource type="Animation" id="Animation_k5pu3"]
+resource_name = "new_animation"
+length = 3.9916666
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9916666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1808, 90), Vector2(1808, 458)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqu8w"]
+_data = {
+&"RESET": SubResource("Animation_u2c82"),
+&"new_animation": SubResource("Animation_k5pu3")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iqu8w"]
+
 [node name="Main Level" type="Node2D" unique_id=1321971040]
-
-[node name="Player" parent="." unique_id=1832184252 instance=ExtResource("1_v3uhd")]
-position = Vector2(632, -10)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1772839133]
-zoom = Vector2(4, 4)
 
 [node name="BGN" type="Node" parent="." unique_id=949720807]
 
 [node name="Node2D" type="Node2D" parent="BGN" unique_id=322001627]
 
+[node name="r" type="Sprite2D" parent="BGN" unique_id=1686837828]
+position = Vector2(886.99994, 122)
+scale = Vector2(9.733179, 2.2107596)
+texture = ExtResource("2_bq26l")
+
 [node name="Back" type="Sprite2D" parent="BGN" unique_id=1987666308]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(160.5, -90)
+position = Vector2(160.5, -34)
 scale = Vector2(1.2369791, 1)
 texture = ExtResource("2_8ra5a")
 
 [node name="Back2" type="Sprite2D" parent="BGN" unique_id=944660194]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(626, -90)
+position = Vector2(626, -34)
 scale = Vector2(1.2369791, 1)
 texture = ExtResource("2_8ra5a")
 
 [node name="Back3" type="Sprite2D" parent="BGN" unique_id=1508861705]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1083, -90)
+position = Vector2(1083, -34)
 scale = Vector2(1.2369791, 1)
 texture = ExtResource("2_8ra5a")
 
 [node name="Back4" type="Sprite2D" parent="BGN" unique_id=1897186197]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1508, -90)
+position = Vector2(1508, -34)
 scale = Vector2(1.2369791, 1)
 texture = ExtResource("2_8ra5a")
 
 [node name="Back5" type="Sprite2D" parent="BGN" unique_id=1397561116]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1737, -90)
+position = Vector2(1737, -34)
 scale = Vector2(1.2369791, 1)
 texture = ExtResource("2_8ra5a")
 
@@ -311,8 +353,41 @@ position = Vector2(791, 7)
 [node name="CoinPickUp" parent="Node" unique_id=1564417714 instance=ExtResource("2_ufxs0")]
 position = Vector2(15, -12)
 
+[node name="CoinPickUp7" parent="Node" unique_id=1629407613 instance=ExtResource("2_ufxs0")]
+position = Vector2(23, -104)
+
+[node name="CoinPickUp8" parent="Node" unique_id=1859793007 instance=ExtResource("2_ufxs0")]
+position = Vector2(50, -104)
+
+[node name="CoinPickUp9" parent="Node" unique_id=1234224207 instance=ExtResource("2_ufxs0")]
+position = Vector2(74, -104)
+
+[node name="CoinPickUp10" parent="Node" unique_id=734979202 instance=ExtResource("2_ufxs0")]
+position = Vector2(362, -72)
+
+[node name="CoinPickUp11" parent="Node" unique_id=530304939 instance=ExtResource("2_ufxs0")]
+position = Vector2(389, -72)
+
+[node name="CoinPickUp12" parent="Node" unique_id=1237510168 instance=ExtResource("2_ufxs0")]
+position = Vector2(413, -72)
+
+[node name="CoinPickUp13" parent="Node" unique_id=1389028084 instance=ExtResource("2_ufxs0")]
+position = Vector2(818, -12)
+
+[node name="CoinPickUp14" parent="Node" unique_id=1501130622 instance=ExtResource("2_ufxs0")]
+position = Vector2(845, -12)
+
+[node name="CoinPickUp16" parent="Node" unique_id=1397778453 instance=ExtResource("2_ufxs0")]
+position = Vector2(1113, -9)
+
+[node name="CoinPickUp17" parent="Node" unique_id=409139110 instance=ExtResource("2_ufxs0")]
+position = Vector2(1140, -9)
+
+[node name="CoinPickUp15" parent="Node" unique_id=1991070426 instance=ExtResource("2_ufxs0")]
+position = Vector2(869, -12)
+
 [node name="CoinPickUp2" parent="Node" unique_id=96428238 instance=ExtResource("2_ufxs0")]
-position = Vector2(35, -13)
+position = Vector2(35, -12)
 
 [node name="CoinPickUp3" parent="Node" unique_id=1702461358 instance=ExtResource("2_ufxs0")]
 position = Vector2(64, 5)
@@ -324,4 +399,25 @@ position = Vector2(170, -71)
 position = Vector2(189, -71)
 
 [node name="CoinPickUp6" parent="Node" unique_id=1808265710 instance=ExtResource("2_ufxs0")]
-position = Vector2(138, 3)
+position = Vector2(138, 5)
+
+[node name="Player" parent="." unique_id=1832184252 instance=ExtResource("1_v3uhd")]
+position = Vector2(624, -14)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1772839133]
+zoom = Vector2(4, 4)
+limit_smoothed = true
+
+[node name="Platform" parent="." unique_id=1159242671 instance=ExtResource("7_u2c82")]
+position = Vector2(1808, 90)
+scale = Vector2(1.4, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform" unique_id=1491310218]
+libraries/ = SubResource("AnimationLibrary_iqu8w")
+autoplay = &"new_animation"
+
+[node name="KillZone" parent="." unique_id=541375455 instance=ExtResource("8_k5pu3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1555810457]
+position = Vector2(1272, 523)
+shape = SubResource("WorldBoundaryShape2D_iqu8w")
