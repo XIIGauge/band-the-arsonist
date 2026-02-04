@@ -250,44 +250,6 @@ texture = ExtResource("3_qmak7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bq26l")
 
-[sub_resource type="Animation" id="Animation_u2c82"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1808, 90)]
-}
-
-[sub_resource type="Animation" id="Animation_k5pu3"]
-resource_name = "new_animation"
-length = 3.9916666
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.9916666),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1808, 90), Vector2(1808, 458)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqu8w"]
-_data = {
-&"RESET": SubResource("Animation_u2c82"),
-&"new_animation": SubResource("Animation_k5pu3")
-}
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iqu8w"]
 
 [node name="Main Level" type="Node2D" unique_id=1321971040]
@@ -403,22 +365,18 @@ position = Vector2(189, -71)
 position = Vector2(138, 5)
 
 [node name="Player" parent="." unique_id=1832184252 instance=ExtResource("1_v3uhd")]
-position = Vector2(624, -14)
+visibility_layer = 2
+position = Vector2(1735, 70)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1772839133]
 zoom = Vector2(5, 5)
 limit_smoothed = true
-
-[node name="Platform" parent="." unique_id=1159242671 instance=ExtResource("7_u2c82")]
-position = Vector2(1808, 90)
-scale = Vector2(1.4, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform" unique_id=1491310218]
-libraries/ = SubResource("AnimationLibrary_iqu8w")
-autoplay = &"new_animation"
 
 [node name="KillZone" parent="." unique_id=541375455 instance=ExtResource("8_k5pu3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1555810457]
 position = Vector2(1272, 523)
 shape = SubResource("WorldBoundaryShape2D_iqu8w")
+
+[node name="Platform" parent="." unique_id=1159242671 instance=ExtResource("7_u2c82")]
+z_index = 9

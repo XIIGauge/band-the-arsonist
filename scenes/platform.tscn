@@ -6,7 +6,48 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlgqw"]
 size = Vector2(48, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_507ja"]
+size = Vector2(50, 20)
+
+[sub_resource type="Animation" id="Animation_n1ckp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 366)]
+}
+
+[sub_resource type="Animation" id="Animation_u7qrw"]
+resource_name = "new_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 366)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6f2a1"]
+_data = {
+&"RESET": SubResource("Animation_n1ckp"),
+&"new_animation": SubResource("Animation_u7qrw")
+}
+
 [node name="Platform" type="AnimatableBody2D" unique_id=1159242671]
+position = Vector2(0, 366)
 script = ExtResource("1_nlgqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=98978508]
@@ -18,3 +59,14 @@ region_rect = Rect2(262, 245.5, 68, 38)
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_nlgqw")
 one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=468459509]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=300714113]
+position = Vector2(-1, -21)
+shape = SubResource("RectangleShape2D_507ja")
+
+[node name="PlatAnimation" type="AnimationPlayer" parent="." unique_id=679383993]
+libraries/ = SubResource("AnimationLibrary_6f2a1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
