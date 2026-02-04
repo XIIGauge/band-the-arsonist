@@ -252,6 +252,44 @@ sources/0 = SubResource("TileSetAtlasSource_bq26l")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iqu8w"]
 
+[sub_resource type="Animation" id="Animation_k5pu3"]
+resource_name = "PlatMove"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1807, 90), Vector2(1807, 449)]
+}
+
+[sub_resource type="Animation" id="Animation_iqu8w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1807, 449)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5fr2l"]
+_data = {
+&"PlatMove": SubResource("Animation_k5pu3"),
+&"RESET": SubResource("Animation_iqu8w")
+}
+
 [node name="Main Level" type="Node2D" unique_id=1321971040]
 
 [node name="BGN" type="Node" parent="." unique_id=949720807]
@@ -380,3 +418,8 @@ shape = SubResource("WorldBoundaryShape2D_iqu8w")
 
 [node name="Platform" parent="." unique_id=1159242671 instance=ExtResource("7_u2c82")]
 z_index = 9
+position = Vector2(1807, 449)
+
+[node name="PlatAnimation" type="AnimationPlayer" parent="Platform" unique_id=691043205]
+libraries/ = SubResource("AnimationLibrary_5fr2l")
+autoplay = &"PlatMove"
