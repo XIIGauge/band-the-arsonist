@@ -417,6 +417,7 @@ position = Vector2(1272, 523)
 shape = SubResource("WorldBoundaryShape2D_iqu8w")
 
 [node name="Platform" parent="." unique_id=1159242671 instance=ExtResource("7_u2c82")]
+visibility_layer = 2
 z_index = 9
 position = Vector2(1807, 449)
 
