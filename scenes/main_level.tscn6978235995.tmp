@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1j3qm0otd6gd" path="res://scenes/coin_pick_up.tscn" id="2_ufxs0"]
 [ext_resource type="Texture2D" uid="uid://bf1busbvjlyrs" path="res://2D Resources/tilesets/tileset.png" id="3_qmak7"]
 [ext_resource type="PackedScene" uid="uid://3kcggtghjsei" path="res://scenes/green_slime.tscn" id="4_8ra5a"]
-[ext_resource type="PackedScene" uid="uid://cj6ijfboyhaqh" path="res://scenes/UI Folder/coin_ui.tscn" id="7_iqu8w"]
+[ext_resource type="PackedScene" path="res://scenes/UI Folder/coin_ui.tscn" id="7_iqu8w"]
 [ext_resource type="PackedScene" uid="uid://brwhb76pcde88" path="res://scenes/platform.tscn" id="7_u2c82"]
 [ext_resource type="PackedScene" uid="uid://dybctc2es4aj" path="res://scenes/kill_zone.tscn" id="8_k5pu3"]
 [ext_resource type="Script" uid="uid://7nl6q2ocg18i" path="res://Script folder/game_manager.gd" id="10_5fr2l"]
@@ -435,5 +435,4 @@ libraries/ = SubResource("AnimationLibrary_5fr2l")
 autoplay = &"PlatMove"
 
 [node name="GameManager" type="Node" parent="." unique_id=516079233]
-unique_name_in_owner = true
 script = ExtResource("10_5fr2l")
