@@ -23,6 +23,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://bx4gewt60h0r3"
 
+[autoload]
+
+BgMusic="*uid://62kw2lnaepd0"
+
 [input]
 
 jump={
